@@ -1,0 +1,89 @@
+﻿
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2 style="font-family: Cambria, Georgia, serif; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;" class="text-success">Welcome Admin</h2>
+
+<br />
+
+<br />
+
+
+<link href="~/Style/Dashboard.css" rel="stylesheet" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+
+@using (Html.BeginForm())
+{
+
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-6 col-md-4">
+           
+                <a href="@Url.Action("Updatehotel", "Hotel")" class="btn btn-sq-lg btn-primary">
+                    <i class="fa fa-user fa-5x"></i><br />
+                    Add New  <br>Hotel
+                </a>
+        </div>
+        <div class="col-6 col-md-4">
+
+            <a href="@Url.Action("Updatehotel", "Hotel")" class="btn btn-sq-lg btn-success">
+                <i class="fa fa-user fa-5x"></i><br />
+                Update Hotel <br>Details
+            </a>
+
+
+        </div>
+        <div class="col-6 col-md-4">
+
+            <a href="@Url.Action("DeleteHotel", "Hotel")" class="btn btn-sq-lg btn-danger">
+                <i class="fa fa-user fa-5x"></i><br />
+                Delete Hotel <br>Record
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <br />
+
+
+
+
+
+    <div style="height:250px;">
+
+
+
+
+
+        <fieldset style=" background-color: #eeeeee; height:100%;">
+
+
+            <div style="padding-top:30px; padding-left:15px; text-align:left;">
+
+                <h3 style="font-family: Adamina; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;" class="text-primary">Welcome to your work place.</h3>
+
+                <p style="font-family: Adamina; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;">
+
+                    It is customizable and loaded with<br />
+                    automated performance and management tools<br />
+
+                </p>
+
+            </div>
+
+
+        </fieldset>
+
+
+
+    </div>
+
+}

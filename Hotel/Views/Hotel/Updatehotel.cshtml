@@ -1,0 +1,779 @@
+﻿@model Hotel.ServiceReference1.HotelDetails
+
+
+@{
+    ViewBag.Title = "Updatehotel";
+}
+
+<link href="~/Style/Updatehotel.css" rel="stylesheet" />
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+
+    function fun() {
+        document.getElementById('HotelName').value = '';
+
+    }
+
+
+    function validid() {
+        var a = $("#HotelName").val();
+
+
+
+        var b = $("#HotelAddress").val();
+
+
+        var c = $("#ContactNo").val();
+
+
+
+        var d = $("#Country").val();
+
+
+
+        var e = $("#TotalAcRooms").val();
+
+
+
+        var f = $("#AcRoomsAdultRate").val();
+
+
+        var g = $("#AcRoomsChildtRate").val();
+
+
+        var h = $("#TotalNonAcRooms").val();
+
+
+        var i = $("#NonAcRoomsAdultRate").val();
+
+
+
+        var j = $("#NonAcRoomsChildtRate").val();
+
+        var k = $("#City").val();
+
+        var l = $("# HotelDes").val();
+
+
+
+        if (a == "" || b == "" || c == "" || d == "" || e == "" || f == "" || g == "" || h == "" || i == "" || j == "" || k == "" || l == "") {
+
+            alert("Please Fill All Details.");
+
+        }
+
+      
+
+    }
+
+
+    $(document).ready(function () {
+
+        $("#ContactNo").blur(function () {
+
+
+            var a = $("#ContactNo").val();
+
+            if (a == "") {
+                alert("please Enter the Contact Number");
+                document.form.phone.focus();
+                return false;
+            }
+            if (isNaN(a)) {
+                alert("Enter the valid Mobile Number(Like : 9566137117)");
+                //document.form.phone.focus();
+
+                $("#ContactNo").val('');
+                return false;
+            }
+            if ((a.length < 1) || (a.length > 10)) {
+                alert(" Your Mobile Number must be 1 to 10 Integers");
+                // document.form.phone.select();
+                $("#ContactNo").val('');
+                return false;
+            }
+            if ((a.length < 10)) {
+                alert(" Your Mobile Number must be of 10 Digits");
+                // document.form.phone.select();
+                $("#ContactNo").val('');
+                return false;
+            }
+        }
+
+
+        );
+    });
+
+    $(document).ready(function () {
+
+        $("#tbldata").hide();
+
+
+        $("#HotelId").change(function () {
+            $.get("/Hotel/JJ",
+                { x: $("#HotelId").val() },
+                function (data) {
+
+
+
+                    $("#tbldata").show("slow");
+
+                    $("#HId").val(data.HotelId);
+
+                    $("#HotelId").val(data.HotelId);
+
+                    $("#HotelName").val(data.HotelName);
+
+                    $("#HotelAddress").val(data.HotelAddress);
+
+                    $("#ContactNo").val(data.ContactNo);
+
+
+                    $("#HotelCity").val(data.HotelCity);
+
+
+                    $("#HotelDes").val(data.HotelDes);
+
+                    $("#Country").val(data.Country);
+
+                    $("#TotalAcRooms").val(data.TotalAcRooms);
+
+                    $("#AcRoomsAdultRate").val(data.AcRoomsAdultRate);
+
+                    $("#AcRoomsChildtRate").val(data.AcRoomsChildtRate);
+
+                    $("#TotalNonAcRooms").val(data.TotalNonAcRooms);
+
+                    $("#NonAcRoomsAdultRate").val(data.NonAcRoomsAdultRate);
+
+                    $("#NonAcRoomsChildtRate").val(data.NonAcRoomsChildtRate);
+
+                    $("#TotalRooms").val(data.TotalRooms);
+
+                });
+        });
+    });
+
+
+    //$(document).ready(function () {
+
+    //    $("#upd").click(function () {
+
+    //        var a = $("#HotelAddress").val();
+
+    //        var b = $("#ContactNo").val();
+
+    //        var c = $("#TotalAcRooms").val();
+
+    //        var d = $("#AcRoomsAdultRate").val();
+
+    //        var e = $("#AcRoomsChildtRate").val();
+
+    //        var f = $("#TotalNonAcRooms").val();
+
+    //        var g = $("#NonAcRoomsAdultRate").val();
+
+    //        var h = $("#NonAcRoomsChildtRate").val();
+
+    //        var i = $("# HotelDes").val();
+
+
+    //        if (a == "" || b == "" || c == "" || d == "" || e == "" || f == "" || g == "" || h == "" || i == "")
+    //        {
+    //            alert("Blank Details Cannot be Updated.");
+    //        }
+
+    //        return false;
+    //    });
+
+
+    //});
+
+
+
+    
+
+
+    $(document).ready(function () {
+
+        $("#HotelId").change(function () {
+
+
+            if ($("#HotelId").prop('selectedIndex') == 0)
+            {
+                $("#tbldata").hide();
+            }
+            
+           
+
+        });
+        
+    });
+
+    $(document).ready(function () {
+        $("#NonAcRoomsChildtRate").blur(function () {
+            var val1 = parseInt($("#TotalAcRooms").val());
+            var val2 = parseInt($("#TotalNonAcRooms").val());
+
+            if (val1 == "") {
+                alert("Fill Number of Rooms");
+
+            }
+
+            else if (val2 == "") {
+                alert("Fill Number of Rooms");
+
+            }
+
+            else if (isNaN(val1)) {
+
+                alert("Fill Number of Rooms");
+            }
+
+            else if (isNaN(val2)) {
+
+                alert("Fill Number of Rooms");
+            }
+
+            else {
+                $("#TotalRooms").val(val1 + val2);
+            }
+
+        });
+    });
+
+
+
+
+    $(document).ready(function () {
+        $("#TotalAcRooms").blur(function () {
+
+            var b = $("#TotalAcRooms").val();
+
+            if (isNaN(b)) {
+                alert("Enter Digits only. In Range 1-300");
+                $("#TotalAcRooms").val('');
+                $("#TotalAcRooms").focus();
+            }
+
+
+
+            if ((b < 1) || (b > 300)) {
+                alert("Enter room number in range 1-300");
+                $("#TotalAcRooms").val('');
+                $("#TotalAcRooms").focus();
+            }
+
+        });
+
+
+        $("#TotalNonAcRooms").blur(function () {
+
+            var b = $("#TotalNonAcRooms").val();
+
+            if (isNaN(b)) {
+                alert("Enter Digits only. In Range 1-300");
+                $("#TotalNonAcRooms").val('');
+                $("#TotalNonAcRooms").focus();
+            }
+
+
+
+            if ((b < 1) || (b > 300)) {
+                alert("Enter room number in range 1-300");
+                $("#TotalNonAcRooms").val('');
+                $("#TotalNonAcRooms").focus();
+            }
+
+        });
+
+
+    });
+
+
+
+    $(document).ready(function () {
+        $("#AcRoomsAdultRate").blur(function () {
+            var b = $("#AcRoomsAdultRate").val();
+
+            if (isNaN(b)) {
+
+                alert("Enter Amount in digits only. In Range 2501-4000");
+
+                $("#AcRoomsAdultRate").val('');
+                $("#AcRoomsAdultRate").focus();
+            }
+
+            if ((b < 2501) || (b > 4000)) {
+                alert("AC Room Rate for adult should be in Range 2501-4000");
+
+                $("#AcRoomsAdultRate").val('');
+                $("#AcRoomsAdultRate").focus();
+            }
+
+        });
+
+
+        $("#AcRoomsChildtRate").blur(function () {
+            var b = $("#AcRoomsChildtRate").val();
+
+            if (isNaN(b)) {
+
+                alert("Enter Amount in digits only. In Range 2000-4000");
+
+                $("#AcRoomsChildtRate").val('');
+                $("#AcRoomsChildtRate").focus();
+            }
+
+            if ((b < 2001) || (b > 3000)) {
+                alert("AC Room Rate for child should be in Range 2001-3000");
+
+                $("#AcRoomsChildtRate").val('');
+                $("#AcRoomsChildtRate").focus();
+            }
+
+        });
+
+
+
+
+    });
+
+
+
+
+    $(document).ready(function () {
+        $("#NonAcRoomsAdultRate").blur(function () {
+            var b = $("#NonAcRoomsAdultRate").val();
+
+            if (isNaN(b)) {
+
+                alert("Enter Amount in digits only. In Range 2000-2500");
+
+                $("#NonAcRoomsAdultRate").val('');
+                $("#NonAcRoomsAdultRate").focus();
+            }
+
+            if ((b < 2000) || (b > 2500)) {
+                alert("NON-AC Room Rate for adult should be in Range 2000-2500");
+
+                $("#NonAcRoomsAdultRate").val('');
+                $("#NonAcRoomsAdultRate").focus();
+            }
+
+        });
+
+
+        $("#NonAcRoomsChildtRate").blur(function () {
+            var b = $("#NonAcRoomsChildtRate").val();
+
+            if (isNaN(b)) {
+
+                alert("Enter Amount in digits only. In Range 1000-2000");
+
+                $("#NonAcRoomsChildtRate").val('');
+                $("#NonAcRoomsChildtRate").focus();
+            }
+
+            if ((b < 1000) || (b > 2000)) {
+                alert("AC Room Rate for child should be in Range 1000-2000");
+
+                $("#NonAcRoomsChildtRate").val('');
+                $("#NonAcRoomsChildtRate").focus();
+            }
+
+        });
+
+
+
+
+    });
+ 
+       
+    
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+@using (Html.BeginForm())
+{
+
+
+    <fieldset style=" background-color: #eeeeee;">
+
+        <legend style=" background-color: dimgray; font-family: Cambria, Georgia, serif; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;">Update Hotel Details</legend>
+
+        <table>
+
+            <tr>
+                <td>
+                    <div style="padding-right:20px;">
+
+                        @Html.Label("Select Hotel Id")
+
+                    </div>
+                </td>
+
+                <td>
+
+                    @Html.DropDownListFor(x => x.HotelId, (IEnumerable<SelectListItem>)ViewBag.hotelid, "------------Select------------", new { style ="width: 200px; height:30px;" })
+
+                </td>
+            </tr>
+        </table>
+
+
+
+   
+
+    
+
+    @*<fieldset style=" background-color: #eeeeee;" id="FDS">*@
+
+
+    <table id="tbldata">
+
+
+        <tr>
+
+
+            <td style="padding: 30px; ">
+
+                <div style="text-align:center;padding: 0px; ">
+                    @Html.Label("HOTEL ID")
+
+                </div>
+
+
+                <div style="text-align:center;padding: 0px;">
+
+                    <input style="border:0px solid white; text-align:center; width: 250px;" type="text" id="HId" disabled />
+
+                    @Html.HiddenFor(x => x.HotelId)
+
+                    @*@Html.TextBoxFor(x => x.HotelId, null, new { style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills" })*@
+
+
+
+                </div>
+
+
+
+            </td>
+
+
+
+            <td style="padding: 30px; ">
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @Html.Label("HOTEL NAME")
+
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; width: 250px; text-align:center;" type="text" id="HotelName" disabled />*@
+
+
+                    @Html.TextBoxFor(x => x.HotelName, null, new { style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills", required = "required" })
+
+                    @*@Html.HiddenFor(x => x.HotelName)*@
+
+                </div>
+
+            </td>
+
+
+            <td style="padding: 30px; ">
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @Html.Label("HOTEL ADDRESS")
+
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left; width: 200px;" type="text" id="HotelAddress" />
+
+                    @Html.HiddenFor(x => x.HotelAddress)*@
+
+
+                    @Html.TextBoxFor(x => x.HotelAddress, null, new { style = "background-color:white; width:200px; border:0px solid white; text-align:left;", placeholder = "Enter Detaills" })
+
+                </div>
+            </td>
+
+
+
+        </tr>
+
+
+        <tr>
+            <td style="padding: 30px;">
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @Html.Label("CITY")
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    <input style="border:0px solid white; text-align:center;" type="text" id="HotelCity" disabled />
+
+                    @Html.HiddenFor(x => x.HotelCity)
+
+                    @*@Html.TextBoxFor(x => x.HotelCity, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+
+                </div>
+            </td>
+
+            <td style="padding: 30px; ">
+                <div style="text-align:center;padding: 0px;">
+                    @Html.Label("COUNTRY")
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    <input style="border:0px solid white; text-align:center;" type="text" id="Country" disabled />
+
+                    @Html.HiddenFor(x => x.Country)
+
+                    @*@Html.TextBoxFor(x => x.Country, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+                </div>
+
+
+
+            </td>
+
+            <td style="padding: 30px; ">
+                <div style="text-align:center;padding-top: 0px;">
+                    @Html.Label("CONTACT NUMBER")
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left; width: 200px;" type="text" id="ContactNo" />
+
+                    @Html.HiddenFor(x => x.ContactNo)*@
+
+                    @Html.TextBoxFor(x => x.ContactNo, null, new { style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills", required = "required" })
+                </div>
+
+            </td>
+
+
+        </tr>
+
+        <tr>
+
+            <td style="padding: 30px; ">
+                <div style="text-align:center;padding:0px;">
+                    @Html.Label("TOTAL AC Rooms")
+                </div>
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left;" type="text" id="TotalAcRooms" />
+
+                    @Html.HiddenFor(x => x.TotalAcRooms)*@
+
+
+                    @Html.TextBoxFor(x => x.TotalAcRooms, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white; border: none; text-align:left; width: 200px;", placeholder = "Enter Detaills" })
+                </div>
+
+            </td>
+
+            <td style="padding: 30px; ">
+                <div style="text-align:center;padding: 0px;">
+                    @Html.Label("AC-ROOMS RATE FOR ADULTS")<span>*</span>
+
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left; width:250px;" type="text" id="AcRoomsAdultRate" />
+
+                    @Html.HiddenFor(x => x.AcRoomsAdultRate)*@
+
+                    @Html.TextBoxFor(x => x.AcRoomsAdultRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", required = "required" })
+
+                </div>
+            </td>
+
+            <td style="padding: 30px; ">
+                <div style="text-align:center;padding:0px;">
+                    @Html.Label("AC-ROOMS RATE FOR CHILD")
+
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left; width:250px;" type="text" id="AcRoomsChildtRate" />
+
+                    @Html.HiddenFor(x => x.AcRoomsChildtRate)*@
+
+                    @Html.TextBoxFor(x => x.AcRoomsChildtRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills", required = "required" })
+
+                </div>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td style="padding: 30px;">
+                <div style="text-align:center;padding: 0px;">
+
+                    @Html.Label("TOTAL NON-AC ROOMS")
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left; width:200px;" type="text" id="TotalNonAcRooms" />
+
+                    @Html.HiddenFor(x => x.TotalNonAcRooms)*@
+
+                    @Html.TextBoxFor(x => x.TotalNonAcRooms, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills", required = "required" })
+
+                </div>
+            </td>
+
+            <td style="padding: 30px; ">
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @Html.Label("NON-AC ROOMS RATE FOR ADULTS")
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left; width:250px;" type="text" id="NonAcRoomsAdultRate" />
+
+                    @Html.HiddenFor(x => x.NonAcRoomsAdultRate)*@
+
+                    @Html.TextBoxFor(x => x.NonAcRoomsAdultRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills", required = "required" })
+
+                </div>
+
+
+            </td>
+
+            <td style="padding: 30px; ">
+                <div style="text-align:center;padding: 0px;">
+                    @Html.Label(" NON-AC ROOMS RATE FOR CHILD")
+                </div>
+
+                <div style="text-align:center;padding: 0px;">
+
+                    @*<input style="border:0px solid white; text-align:left; width:250px;" type="text" id="NonAcRoomsChildtRate" />
+
+                    @Html.HiddenFor(x => x.NonAcRoomsChildtRate)*@
+
+                    @Html.TextBoxFor(x => x.NonAcRoomsChildtRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills", required = "required" })
+                </div>
+
+            </td>
+        </tr>
+
+
+        <tr>
+
+
+            <td style="padding: 15px; ">
+
+                <div style="text-align:center;padding: 5px;">
+
+                    @Html.Label("HOTEL DESCRIPTION")
+                </div>
+
+                <div style="text-align:left;padding: 0px;">
+
+                    @Html.TextAreaFor(x => x.HotelDes, new { maxlength = 150, @title = "Max 150 Character", style = "background-color:white; width:350px; height:100px; resize: none; white-space: pre-wrap;", placeholder = "Enter Hotel Description. Max Word Limit 150 Words.", required = "required" })
+
+                </div>
+
+            </td>
+
+
+            <td style="padding-left: 60px; ">
+
+                <div style="text-align:left; padding-left:20px;">
+                    @Html.Label("TOTAL ROOMS IN HOTEL")
+                </div>
+
+                <div>
+
+                    @*<input style="border:0px solid white; text-align:center; padding-left:20px; width:250px;" type="text" id="TotalRooms" disabled />
+
+                    @Html.HiddenFor(x => x.TotalRooms)*@
+
+                    @Html.TextBoxFor(x => x.TotalRooms, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white; background-color:white; border:0px solid white; text-align:left; width: 200px;", placeholder = "Enter Detaills" })
+                </div>
+
+            </td>
+
+
+            <td style="padding-left: 80px; padding-top:20px; ">
+
+                <button type="submit" href="/" onclick="validid();">Submit</button>
+            </td>
+        </tr>
+
+
+
+
+    </table>
+
+    <br />
+
+    <br />
+
+        </fieldset>
+
+    @*</fieldset>*@
+
+    if (@ViewBag.ms != null)
+    {
+<script>
+
+           alert("@ViewBag.ms");
+
+</script> 
+    }
+
+
+}
+
+
+@*@Html.DropDownList("Deptid", new List<SelectListItem>
+     {
+
+
+
+     new SelectListItem{Text="-----Select Room Type------",Value="-1", Selected=true },
+
+     new SelectListItem{Text="C",Value="C" },
+
+    new SelectListItem{Text="C++",Value="C++" },
+
+     new SelectListItem{Text="Java",Value="Java" },
+
+
+
+     }, new { @class = "mycombo" })*@

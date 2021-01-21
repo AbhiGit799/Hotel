@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59675/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59675/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59675/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HotelService.HotelClasses" />
+      <xsd:import schemaLocation="http://localhost:59675/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_InsertCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCountry" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCity" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insertroomtype_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertroomtype" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insertroomtype_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertroomtypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertRoomDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRoomDetails" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertRoomDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRoomDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Addhotel_InputMessage">
+    <wsdl:part name="parameters" element="tns:Addhotel" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Addhotel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddhotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Upadtehotel_InputMessage">
+    <wsdl:part name="parameters" element="tns:Upadtehotel" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Upadtehotel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpadtehotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getallhotel_InputMessage">
+    <wsdl:part name="parameters" element="tns:getallhotel" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getallhotel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getallhotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCities" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHoteIdies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHoteIdies" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHoteIdies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHoteIdiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHotelDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHotelDetails" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHotelDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHotelDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Gethoteroomtype_InputMessage">
+    <wsdl:part name="parameters" element="tns:Gethoteroomtype" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Gethoteroomtype_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GethoteroomtypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Removehotel_InputMessage">
+    <wsdl:part name="parameters" element="tns:Removehotel" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Removehotel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovehotelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="InsertCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertCountry" message="tns:IService1_InsertCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertCountryResponse" message="tns:IService1_InsertCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertCity" message="tns:IService1_InsertCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertCityResponse" message="tns:IService1_InsertCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertroomtype">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insertroomtype" message="tns:IService1_Insertroomtype_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertroomtypeResponse" message="tns:IService1_Insertroomtype_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRoomDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertRoomDetails" message="tns:IService1_InsertRoomDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertRoomDetailsResponse" message="tns:IService1_InsertRoomDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Addhotel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Addhotel" message="tns:IService1_Addhotel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddhotelResponse" message="tns:IService1_Addhotel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upadtehotel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Upadtehotel" message="tns:IService1_Upadtehotel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpadtehotelResponse" message="tns:IService1_Upadtehotel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getallhotel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getallhotel" message="tns:IService1_getallhotel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getallhotelResponse" message="tns:IService1_getallhotel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCountries" message="tns:IService1_GetCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCountriesResponse" message="tns:IService1_GetCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCities" message="tns:IService1_GetCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCitiesResponse" message="tns:IService1_GetCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHoteIdies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHoteIdies" message="tns:IService1_GetHoteIdies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHoteIdiesResponse" message="tns:IService1_GetHoteIdies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHotelDetails" message="tns:IService1_GetHotelDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHotelDetailsResponse" message="tns:IService1_GetHotelDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Gethoteroomtype">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Gethoteroomtype" message="tns:IService1_Gethoteroomtype_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GethoteroomtypeResponse" message="tns:IService1_Gethoteroomtype_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Removehotel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Removehotel" message="tns:IService1_Removehotel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemovehotelResponse" message="tns:IService1_Removehotel_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertCountry">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCity">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertroomtype">
+      <soap:operation soapAction="http://tempuri.org/IService1/Insertroomtype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRoomDetails">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertRoomDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Addhotel">
+      <soap:operation soapAction="http://tempuri.org/IService1/Addhotel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upadtehotel">
+      <soap:operation soapAction="http://tempuri.org/IService1/Upadtehotel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getallhotel">
+      <soap:operation soapAction="http://tempuri.org/IService1/getallhotel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCities">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHoteIdies">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetHoteIdies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelDetails">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetHotelDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gethoteroomtype">
+      <soap:operation soapAction="http://tempuri.org/IService1/Gethoteroomtype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Removehotel">
+      <soap:operation soapAction="http://tempuri.org/IService1/Removehotel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:59675/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,74 @@
+﻿
+body, div, form, input, select, textarea, label {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+}
+
+    .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+        color: #006622;
+    }
+
+.item input:hover, .item select:hover, .item textarea:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 3px 0 #006622;
+    color: #666;
+}
+
+.item {
+    position: relative;
+    margin: 10px 0;
+}
+
+    .item span {
+        color: red;
+    }
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+th,td
+{
+
+    padding:10px;
+
+}
+
+legend {
+    padding: 10px;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+    color: #fff;
+    background-color: #006622;
+}
+
+
+.item span {
+    color: red;
+}
+
+.btn-block {
+    margin-top: 10px;
+    text-align: center;
+}
+
+button {
+    width: 125px;
+    height: 36px;
+    /* padding: 10px;*/
+    border: none;
+    border-radius: 5px;
+    background: #006622;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+    button:hover {
+        background: #00b33c;
+    }

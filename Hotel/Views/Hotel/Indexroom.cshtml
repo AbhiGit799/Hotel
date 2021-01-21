@@ -1,0 +1,334 @@
+﻿@model Hotel.ServiceReference1.RoomDetails
+
+@{
+    ViewBag.Title = "Indexroom";
+}
+
+<link href="~/Style/Indexroomstyle.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+
+        $("#TotalRoomType").tooltip({ track: true });
+
+        $("#RateAdult").tooltip({ track: true });
+
+        
+
+    });
+
+   
+
+
+    $(document).ready(function () {
+
+        $("#TotalRoomType").blur(function () {
+
+
+            var a = $("#TotalRoomType").val();
+
+            if (a == "") {
+                alert("Please Enter Number of Rooms");
+                return false;
+            }
+            if (isNaN(a)) {
+                alert("Enter the valid Number of Rooms)");
+                
+
+                $("#TotalRoomType").val('');
+                return false;
+            }
+            if (a<1) {
+                alert("Total Number of rooms not be less than 1");
+               
+                $("#TotalRoomType").val('');
+                return false;
+            }
+            if ((a> 300)) {
+                alert(" Total Number of rooms not be more than 300");
+                // document.form.phone.select();
+                $("#TotalRoomType").val('');
+                return false;
+            }
+        }
+
+        );
+
+
+        $("#RateAdult").blur(function () {
+
+
+            var a = $("#RateAdult").val();
+
+            if (a == "") {
+                alert("Please Enter Rate for Adults");
+                return false;
+            }
+            else if (isNaN(a)) {
+                alert("Please Enter Digits Only)");
+
+
+                $("#RateAdult").val('');
+                return false;
+            }
+            else if ((a < 2000) || (a > 4000)) {
+                alert("Rate for Adult should be 2000-4000");
+
+                $("#RateAdult").val('');
+                return false;
+            }
+
+            else
+            {
+                alert("Select Room Type First");
+            }
+            
+        }
+
+        );
+
+        $("#RateChild").blur(function () {
+
+
+            var a = $("#RateChild").val();
+
+            if (a == "") {
+                alert("Please Enter Rate for Child");
+                return false;
+            }
+            else if (isNaN(a)) {
+                alert("Please Enter Digits Only)");
+
+
+                $("#RateChild").val('');
+                return false;
+            }
+            else if ((a < 1000) || (a > 3000)) {
+                alert("Rate for Child should be 1000-3000");
+
+                $("#RateChild").val('');
+                return false;
+            }
+
+            else {
+                alert("Select Room Type First");
+            }
+
+        }
+
+        );
+
+        $("#RId").change(function () {
+
+            var drop = $("#RId").val();
+
+            var rateadult = $("#RateAdult").val();
+
+            if (drop == "AC ROOMS")
+            {
+                $("#RateAdult").blur(function () {
+
+                    var rateadult = $("#RateAdult").val();
+
+                    if ((rateadult < 2501) || (rateadult>4000)) {
+                        alert("Rate for adult should be 2501-4000");
+                        $("#RateAdult").val('');
+                        $("#RateAdult").focus();
+                    }
+
+                });
+
+                $("#RateChild").blur(function () {
+
+                    var ratechild = $("#RateChild").val();
+
+                    if ((ratechild < 2001) || (ratechild > 3000)) {
+                        alert("Rate for Child should be 2001-3000");
+
+                        $("#RateChild").val('');
+                        $("#RateChild").focus();
+                    }
+
+                });
+
+                
+            }
+
+            else if (drop == "NON-AC ROOMS")
+            {
+
+                $("#RateAdult").blur(function () {
+
+                    var rateadult = $("#RateAdult").val();
+
+                    if ((rateadult < 2000) || (rateadult > 2500)) {
+                        alert("NON-AC ROOMS Rate for adult should be 2000-2500");
+                        $("#RateAdult").val('');
+                        $("#RateAdult").focus();
+                    }
+
+                });
+
+
+                $("#RateChild").blur(function () {
+
+                    var rateadult = $("#RateChild").val();
+
+                    if ((rateadult < 1000) || (rateadult > 2000)) {
+                        alert("Rate for child should be 1000-2000");
+                        $("#RateChild").val('');
+                        $("#RateChild").focus();
+                    }
+
+                });
+            }
+            else
+            {
+                alert("Select Room Types");
+                $("#RateChild").val('');
+                $("#RateAdult").val('');
+            }
+
+        });
+
+
+
+           
+
+     });
+
+   
+
+
+
+
+</script>
+
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="testbox">
+
+
+
+        <fieldset style=" background-color: #eeeeee;">
+
+            <legend style=" background-color: dimgray;">Room Details</legend>
+
+            <div class="columns">
+                <div class="item">
+
+                    <div style="text-align:left;padding: 10px;">
+
+                        @Html.Label("Select Room Type")
+
+                        <span>*</span>
+                    </div>
+
+
+
+                    @*@Html.DropDownList("Deptid", new List<SelectListItem>
+         {
+
+
+
+         new SelectListItem{Text="----------------------------------Select Room Type----------------------------------",Value="-1", Selected=true },
+
+         new SelectListItem{Text="C",Value="C" },
+
+        new SelectListItem{Text="C++",Value="C++" },
+
+         new SelectListItem{Text="Java",Value="Java" },
+
+
+
+         }, new { @class = "mycombo" })*@
+
+
+                    @Html.DropDownListFor(x => x.RId, (IEnumerable<SelectListItem>)ViewBag.roomtypeid, "---Select---");
+
+
+
+                </div>
+
+                <div class="item">
+                    <div style="text-align:left;padding: 10px;">@Html.Label("Enter Number of Rooms")<span>*</span></div>
+
+                    @*@Html.TextBox("numberofroom", null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                    @Html.TextBoxFor(x=>x.TotalRoomType, null, new { maxlength = 20, @title = "Max 300 Rooms", style = "background-color:white", placeholder = "Enter Detaills" })
+
+                </div>
+
+                <div class="item">
+                    <div style="text-align:left;padding: 10px;">
+
+                        @Html.Label("Enter Rate For Adult")<span>*</span>
+                    </div>
+
+                    @Html.TextBoxFor(x => x.RateAdult, null, new {@title = "Room Rates for Adult", style = "background-color:white", placeholder = "Enter Detaills" })
+                </div>
+
+                <div class="item">
+
+                    <div style="text-align:left;padding: 10px;">
+
+                        @Html.Label("Enter Rate For Child")<span>*</span>
+                    </div>
+
+                    @*@Html.TextBox("", null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                    @Html.TextBoxFor(x => x.RateChild, null, new { @title = "Room Rates for Child", style = "background-color:white", placeholder = "Enter Detaills" })
+
+
+                </div>
+
+
+                @*<div class="item">
+
+                    <div style="text-align:left;padding: 10px;">
+
+                        @Html.Label("Total Number Of Rooms")<span>*</span>
+                    </div>
+
+                    @Html.TextBox("myname", null, new { style = "background-color:white", placeholder = "Total Rooms" })
+                </div>*@
+
+
+
+                <div class="item">
+
+                    <div style="padding:38px;">
+                        <button type="submit" href="/">Submit</button>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+        </fieldset>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+}

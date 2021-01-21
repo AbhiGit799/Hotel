@@ -1,0 +1,85 @@
+﻿@model Hotel.ServiceReference1.HotelDetails
+
+@{
+    ViewBag.Title = "Findhote";
+}
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        
+
+        $("#txtxId").blur(function ()
+        {
+
+           
+
+           
+            $.ajax({
+
+                
+
+                type: "POST",
+                url:'/Hotel/fetchEmp',
+
+                contentType: "application/json; charset=utf-8",
+                data: "{'HotelId':" + $("#txtxId").val() + "}",
+                dataType: 'json',
+                success: function (data) {
+
+
+                    alert(data.HotelName);
+                    
+
+                  
+
+                },
+                error: function (err) {
+                    console.log(JSON.stringify(data));
+                }
+            });
+
+
+        }
+        );
+
+
+
+
+    });
+
+
+</script>
+
+<h2>Findhote</h2>
+
+@using (Html.BeginForm())
+{
+<table>
+    <tr>
+        <td> Emp No   </td>
+        <td>@Html.TextAreaFor(x => x.HotelId, new { id= "txtxId" })   </td>
+
+    </tr>
+
+    <tr>
+        <td> Emp Name   </td>
+        <td>@Html.TextAreaFor(x => x.HotelName)   </td>
+
+    </tr>
+ 
+    <tr>
+
+        <td> <input type="submit" value="Submit" id="btnsgetid"/>  </td>
+
+    </tr>
+
+</table>
+
+
+                    //  @Html.TextBoxFor(@e.Hotel);
+
+
+    
+}

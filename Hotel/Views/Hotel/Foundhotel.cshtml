@@ -1,0 +1,48 @@
+﻿@model Hotel.ServiceReference1.HotelDetails
+@{
+    ViewBag.Title = "Foundhotel";
+}
+
+<h2>Foundhotel</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+
+        <tr>
+            <td>
+                Enter ID
+            </td>
+            <td>
+                @Html.TextBoxFor(x=>x.HotelId, null, new { style = "background-color:white", placeholder = "Enter Detaills" })
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                    Hotel Name
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.HotelName);
+
+                </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <input type="submit" class="btn-danger btn-lg" id="btndelete" value="DELETE" />
+            </td>
+
+        </tr>
+
+
+    </table>
+
+
+    if (@ViewBag.msg != null)
+    {
+        @ViewBag.msg;
+    }
+}

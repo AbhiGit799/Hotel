@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>*@
+
+<link href="~/Style/HStyle.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+<div class="holder">
+
+
+    <table class="login_tabel" align='center'>
+
+        <tr>
+            <td colspan="2" style="text-align:center"> <span id="heading">Add Hotel Form</span></td>
+        </tr>
+
+        <tr colspan="2"style="text-align:center">
+            <td>@Html.Label("Enter Hotel Name")</td>
+
+            <td>
+                @Html.TextBox("hotelname", null, new { style = "background-color:white", placeholder = "Please enter name" })
+            </td>
+
+
+
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Enter Hotel Address")</td>
+
+            <td>
+                @Html.TextBox("myname", null, new { style = "background-color:white", placeholder = "Please enter name" })
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Enter Hotel City")</td>
+
+            <td>
+                @Html.TextBox("myname", null, new { style = "background-color:white", placeholder = "Please enter name" })
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Enter Hotel Country")</td>
+
+            <td>
+                @Html.TextBox("myname", null, new { style = "background-color:white", placeholder = "Please enter name" })
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Enter Hotel Description")</td>
+
+            <td>
+                @Html.TextBox("myname", null, new { style = "background-color:white", placeholder = "Please enter name" , height="200px" })
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Enter Number of Rooms")</td>
+
+            <td>
+                @Html.TextBox("myname", null, new { style = "background-color:white", placeholder = "Please enter name" })
+            </td>
+
+        </tr>
+
+
+    </table>
+
+</div>
+
+}

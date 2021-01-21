@@ -1,0 +1,120 @@
+﻿body {
+   /* background-color: #f2f7a3;*/
+    text-align: center;
+}
+
+.holder {
+    height: 600px;
+    width: 700px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -350px;
+    /*background-color: #fffeab;*/
+    border: 2PX solid white;
+    border-radius: 50px;
+   
+    text-align: center;
+}
+
+.login {
+    width: 650px;
+    height: 550px;
+    border: 2px solid #f2f7a3;
+    top: 50%;
+    left: 50%;
+    margin-top: +25px;
+    margin-left: +25px;
+}
+
+.login_tabel {
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    width: 550px;
+}
+
+    .login_tabel tr, td {
+        padding: 6px;
+        text-align: left;
+    }
+
+    .login_tabel input[type="text"], .login_tabel input[type="password"] {
+        background: none;
+        padding: 3px;
+        border: 1px solid #ccc;
+        /* border: 1px solid blue; */ /*Here use blue for textbox border*/
+        width: 350px;
+        border-radius: 10px;
+        color: gray;
+        text-align: center;
+        font-size: 18px;
+        outline: none;
+    }
+
+    .login_tabel input[type="submit"] {
+        background: none;
+        border: 1px solid white;
+        font-size: 23px;
+        border-radius: 50px;
+        padding: 5px;
+        width: 100px;
+        background-color: #f2f7a3;
+    }
+
+        .login_tabel input[type="submit"]:hover {
+            background: none;
+            border: 2px solid white;
+            font-size: 25px;
+            border-radius: 50px;
+            padding: 5px;
+            width: 200px;
+            background-color: #e8ba00;
+            color: #f2f7a3;
+        }
+
+
+
+
+.sign_in {
+    text-decoration: none;
+    font-size: 19px;
+    color: #e8ba00;
+}
+
+    .sign_in:hover {
+        text-decoration: none;
+        font-size: 22px;
+        color: #e8ba00;
+    }
+
+
+#heading {
+    font-size: 40px;
+    font-weight: bold;
+    color: #e8ba00;
+}
+
+
+
+.year, .sem {
+    background: none;
+    padding: 3px;
+    border: 1px solid white;
+    width: 350px;
+    border-radius: 10px;
+    color: gray;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+}
+
+.error {
+    border: 1px dashed red;
+    padding: 7px;
+    border-radius: 50px;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}

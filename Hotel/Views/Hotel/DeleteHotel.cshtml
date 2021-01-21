@@ -1,0 +1,496 @@
+﻿
+@model Hotel.ServiceReference1.HotelDetails
+
+
+
+@{
+    ViewBag.Title = "DeleteHotel";
+}
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<link href="~/Style/Delete.css" rel="stylesheet" />
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#tbldata").hide();
+
+        $("#HotelId").change(function () {
+            $.get("/Hotel/JJ",
+                { x: $("#HotelId").val() },
+                function (data) {
+
+
+
+                    $("#tbldata").show("slow");
+
+
+
+                    $("#HId").val(data.HotelId);
+
+                    $("#HotelName").val(data.HotelName);
+
+                    $("#HotelAddress").val(data.HotelAddress);
+
+                    $("#ContactNo").val(data.ContactNo);
+
+
+                    $("#HotelCity").val(data.HotelCity);
+
+
+                    $("#HotelDes").val(data.HotelDes);
+
+                    $("#Country").val(data.Country);
+
+                    $("#TotalAcRooms").val(data.TotalAcRooms);
+
+                    $("#AcRoomsAdultRate").val(data.AcRoomsAdultRate);
+
+                    $("#AcRoomsChildtRate").val(data.AcRoomsChildtRate);
+
+                    $("#TotalNonAcRooms").val(data.TotalNonAcRooms);
+
+                    $("#NonAcRoomsAdultRate").val(data.NonAcRoomsAdultRate);
+
+                    $("#NonAcRoomsChildtRate").val(data.NonAcRoomsChildtRate);
+
+                    $("#TotalRooms").val(data.TotalRooms);
+
+
+
+
+                });
+        });
+    });
+
+    $(document).ready(function () {
+
+        $("#HotelId").change(function () {
+
+
+            if ($("#HotelId").prop('selectedIndex') == 0) {
+                $("#tbldata").hide();
+            }
+
+
+
+        });
+
+    });
+
+
+
+
+
+</script>
+
+
+@*<h2 style="font-family: Cambria, Georgia, serif; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;">Delete Hotel</h2>*@
+
+@using (Html.BeginForm())
+{
+    <br />
+    <br />
+
+    <fieldset style=" background-color: #eeeeee; width:95%;">
+
+        <legend style=" background-color: dimgray; font-family: Cambria, Georgia, serif; font-size: 30px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; color:white;">
+
+            <p style="padding:2px;"> Delete Hotel Details</p>
+
+        </legend>
+
+
+        <table>
+
+            <tr>
+                <td>
+                    <div style="padding:5px;">
+
+                        @Html.Label("Select Hotel Id")
+
+                    </div>
+                </td>
+
+                <td>
+                    @Html.DropDownListFor(x => x.HotelId, (IEnumerable<SelectListItem>)ViewBag.hotelid, "------------Select------------", new { style = "width: 200px; height:30px;" })
+                </td>
+            </tr>
+        </table>
+
+        <br />
+        <br />
+        
+
+
+    </fieldset>
+
+
+       
+        <br />
+
+       
+
+        <div style="text-align:center;padding: 0px;">
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+        <br />
+
+        <br />
+
+
+        <table id="tbldata">
+
+            <tr style="padding-top:40px;">
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding: 0px;">
+                        @Html.Label("HOTEL ID")
+
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="HId" />
+
+                        @Html.HiddenFor(x => x.HotelId)
+
+                        @*@Html.TextBoxFor(x => x.HotelId, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+
+
+                    </div>
+
+                </td>
+
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        @Html.Label("HOTEL NAME")
+
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="HotelName" />
+
+
+                        @*@Html.TextBoxFor(x => x.HotelName, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                        @Html.HiddenFor(x => x.HotelName)
+
+                    </div>
+
+                </td>
+
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        @Html.Label("HOTEL ADDRESS")
+
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="HotelAddress" />
+
+                        @Html.HiddenFor(x => x.HotelAddress)
+
+
+                        @*@Html.TextBoxFor(x => x.HotelAddress, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                    </div>
+                </td>
+
+
+            </tr>
+
+            <tr style="padding-top:40px;">
+
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        @Html.Label("CITY")
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="HotelCity" />
+
+                        @Html.HiddenFor(x => x.HotelCity)
+
+                        @*@Html.TextBoxFor(x => x.HotelCity, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+
+                    </div>
+
+                </td>
+
+                <td style="width:30%;">
+                    <div style="text-align:center;padding: 0px;">
+                        @Html.Label("COUNTRYCountry")
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="Country" />
+
+                        @Html.HiddenFor(x => x.Country)
+
+                        @*@Html.TextBoxFor(x => x.Country, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+                    </div>
+
+                </td>
+
+
+
+                <td style="width:30%;">
+                    <div style="text-align:center;padding: 0px;">
+
+                        @Html.Label("HOTEL DESCRIPTION")
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center; white-space: pre-wrap;" type="text" id="HotelDes" />
+
+                        @Html.HiddenFor(x => x.HotelDes)
+
+
+                        @*@Html.TextBoxFor(x => x.HotelDes, null, new { maxlength = 150, style = "background-color:white; width:150px; height:40px", placeholder = "Enter Detaills" })*@
+
+                    </div>
+                </td>
+
+
+
+
+
+
+
+
+            </tr>
+
+            <tr style="padding-top:40px;">
+
+
+
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding:0px;">
+                        @Html.Label("TOTAL AC Rooms")<span>*</span>
+                    </div>
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="TotalAcRooms" />
+
+                        @Html.HiddenFor(x => x.TotalAcRooms)
+
+
+                        @*@Html.TextBoxFor(x => x.TotalAcRooms, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white", placeholder = "Enter Detaills" })*@
+                    </div>
+
+                </td>
+
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding: 0px;">
+                        @Html.Label("AC-ROOMS RATE FOR ADULTS")<span>*</span>
+
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="AcRoomsAdultRate" />
+
+                        @Html.HiddenFor(x => x.AcRoomsAdultRate)
+
+                        @*@Html.TextBoxFor(x => x.AcRoomsAdultRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                    </div>
+
+                </td>
+
+
+                <td style="width:30%;">
+                    <div style="text-align:center;padding:0px;">
+                        @Html.Label("AC-ROOMS RATE FOR CHILD")<span>*</span>
+
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="AcRoomsChildtRate" />
+
+                        @Html.HiddenFor(x => x.AcRoomsChildtRate)
+
+                        @*@Html.TextBoxFor(x => x.AcRoomsChildtRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                    </div>
+
+                </td>
+
+
+
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr style="padding-top:40px;">
+
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        @Html.Label("TOTAL NON-AC ROOMS")<span>*</span>
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="TotalNonAcRooms" />
+
+                        @Html.HiddenFor(x => x.TotalNonAcRooms)
+
+                        @*@Html.TextBoxFor(x => x.TotalNonAcRooms, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                    </div>
+                </td>
+
+
+
+
+                <td style="width:30%;">
+                    <div style="text-align:center;padding: 0px;">
+
+                        @Html.Label("NON-AC ROOMS RATE FOR ADULTS")<span>*</span>
+                    </div>
+
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="NonAcRoomsAdultRate" />
+
+                        @Html.HiddenFor(x => x.NonAcRoomsAdultRate)
+
+                        @*@Html.TextBoxFor(x => x.NonAcRoomsAdultRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white", placeholder = "Enter Detaills" })*@
+
+                    </div>
+
+                </td>
+
+
+                <td style="width:30%;">
+
+                    <div style="text-align:center;padding: 0px;">
+                        @Html.Label(" NON-AC ROOMS RATE FOR CHILD")
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="NonAcRoomsChildtRate" />
+
+                        @Html.HiddenFor(x => x.NonAcRoomsChildtRate)
+
+                        @*@Html.TextBoxFor(x => x.NonAcRoomsChildtRate, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white", placeholder = "Enter Detaills" })*@
+                    </div>
+                </td>
+
+
+
+
+
+
+
+
+            </tr>
+
+            <tr style="padding-top:40px;">
+
+                <td style="width:30%;">
+                    <div style="text-align:center;padding-top: 0px;">
+                        @Html.Label("CONTACT NUMBER")
+                    </div>
+
+                    <div style="text-align:center;padding: 0px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="ContactNo" />
+
+                        @Html.HiddenFor(x => x.ContactNo)
+
+                        @*@Html.TextBoxFor(x => x.ContactNo, null, new { style = "background-color:white", placeholder = "Enter Detaills" })*@
+                    </div>
+
+                </td>
+
+                <td style="width:30%;">
+                    <div style="text-align:center;padding:0px;">
+                        @Html.Label("TOTAL ROOMS IN HOTEL")
+                    </div>
+                    <div style="text-align:center;padding: 5px;">
+
+                        <input style="border:0px solid white; text-align:center;" type="text" id="TotalRooms" />
+
+                        @Html.HiddenFor(x => x.TotalRooms)
+
+                        @*@Html.TextBoxFor(x => x.TotalRooms, null, new { maxlength = 20, @title = "Max 20 Character.", style = "background-color:white", placeholder = "Enter Detaills" })*@
+                    </div>
+                </td>
+
+                <td style="width:30%;">
+                    <div style="text-align:center;padding-top: 18px;">
+                        <input type="submit" class="btn-danger btn-sm" id="btndelete" value="DELETE" />
+
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <br />
+
+        <br />
+
+
+
+
+
+
+
+
+
+
+        if (@ViewBag.msg != null)
+        {
+        @ViewBag.msg;
+        }
+
+        }
+
